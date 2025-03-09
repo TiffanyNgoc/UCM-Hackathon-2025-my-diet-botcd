@@ -102,30 +102,27 @@ body {
   cursor: pointer;
   transition: transform var(--animation-speed) ease-in-out, opacity var(--animation-speed) ease-in-out;
   opacity: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .world-item:hover {
   transform: scale(1.2);
 }
 
+.world-item.bounce {
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
 .world-count {
   font-size: 16px;
-  margin-left: 5px;
   font-weight: bold;
-}
-
-/* Animated Growth */
-@keyframes grow {
-  from {
-    transform: scale(0.8);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.world-item.animated {
-  animation: grow var(--animation-speed) ease-in-out;
 }
 
 /* Dark Mode Toggle */
