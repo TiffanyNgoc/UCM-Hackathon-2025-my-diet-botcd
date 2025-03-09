@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const API_KEY = "2fbd08af0ecb4068a06b38b08cb53677"; // Replace with your API key
+const API_KEY = "YOUR_SPOONACULAR_API_KEY"; // Replace with your API key
 
 function App() {
   const [ingredients, setIngredients] = useState("");
@@ -91,19 +91,19 @@ function App() {
         {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
       </button>
       <div className="card">
-        <h2 className="title">🥗 Diet Bot</h2>
+        <h2 className="title"><span role="img" aria-label="salad">🥗</span> Diet Bot</h2>
         <p className="description">Enter ingredients & get real meal plans!</p>
-        <h3 className="points">🌟 Points: {points}</h3>
-        <h3 className="world-title">🌍 Virtual World Progress</h3>
+        <h3 className="points"><span role="img" aria-label="star">🌟</span> Points: {points}</h3>
+        <h3 className="world-title"><span role="img" aria-label="earth">🌍</span> Virtual World Progress</h3>
         <div className="world-container">
           <div className="world-item tree" onClick={() => handleWorldClick("trees")}>
-            🌳 <span className="world-count">{world.trees}</span>
+            <span role="img" aria-label="tree">🌳</span> <span className="world-count">{world.trees}</span>
           </div>
           <div className="world-item animal" onClick={() => handleWorldClick("animals")}>
-            🦌 <span className="world-count">{world.animals}</span>
+            <span role="img" aria-label="deer">🦌</span> <span className="world-count">{world.animals}</span>
           </div>
           <div className="world-item water" onClick={() => handleWorldClick("water")}>
-            💧 <span className="world-count">{world.water}</span>
+            <span role="img" aria-label="water">💧</span> <span className="world-count">{world.water}</span>
           </div>
         </div>
 
@@ -133,10 +133,10 @@ function App() {
                       <p>{meal.missedIngredients} missing ingredients, {meal.usedIngredients} used.</p>
                       <a href={meal.link} target="_blank" rel="noopener noreferrer">View Recipe</a>
                       <div className="nutrition-info">
-                        <p>🔥 {meal.calories} kcal</p>
-                        <p>💪 {meal.protein}</p>
-                        <p>🍞 {meal.carbs}</p>
-                        <p>🧈 {meal.fat}</p>
+                        <p><span role="img" aria-label="calories">🔥</span> {meal.calories} kcal</p>
+                        <p><span role="img" aria-label="protein">💪</span> {meal.protein}</p>
+                        <p><span role="img" aria-label="carbs">🍞</span> {meal.carbs}</p>
+                        <p><span role="img" aria-label="fat">🧈</span> {meal.fat}</p>
                       </div>
                     </div>
                   </li>
