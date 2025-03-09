@@ -1,38 +1,208 @@
-.App {
-  text-align: center;
+/* General Page Styling */
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  margin: 0;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Light & Dark Mode Variables */
+:root {
+  --bg-color: #f8f9fa;
+  --card-bg: white;
+  --text-color: #333;
+  --input-bg: #fff;
+  --input-border: #ccc;
+  --button-bg: #007BFF;
+  --button-hover-bg: #0056b3;
+  --recipe-bg: #f5f5f5;
+  --animation-speed: 0.5s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --card-bg: #2c2c2c;
+  --text-color: #e0e0e0;
+  --input-bg: #3a3a3a;
+  --input-border: #57606f;
+  --button-bg: #34ace0;
+  --button-hover-bg: #227093;
+  --recipe-bg: #414b56;
+}
+
+/* Improved Input Box Styling */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input-box {
+  flex: 1;
+  padding: 14px;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 16px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  outline: none;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-box:focus {
+  border-color: var(--button-bg);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+/* Fetch Button Styling */
+.fetch-button {
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 140px;
+}
+
+.fetch-button:hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.05);
+}
+
+/* Virtual World Progress */
+.world-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 10px;
+  background: var(--recipe-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.world-item {
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform var(--animation-speed) ease-in-out, opacity var(--animation-speed) ease-in-out;
+  opacity: 1;
+}
+
+.world-item:hover {
+  transform: scale(1.2);
+}
+
+.world-count {
+  font-size: 16px;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+/* Animated Growth */
+@keyframes grow {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.world-item.animated {
+  animation: grow var(--animation-speed) ease-in-out;
+}
+
+/* Dark Mode Toggle */
+.toggle-button {
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  transition: background 0.3s ease-in-out;
+}
+
+.toggle-button:hover {
+  background: var(--button-hover-bg);
+}
+
+/* Recipe List Container */
+.recipe-list-container {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 150px);
+  padding-bottom: 20px;
+}
+
+.recipe-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Recipe Item */
+.recipe-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background: var(--recipe-bg);
+  padding: 15px;
+  border-radius: 12px;
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.recipe-item:hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.02);
+}
+
+.meal-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.meal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.meal-info strong {
+  font-size: 16px;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.meal-info p {
+  font-size: 14px;
+  color: var(--text-color);
+  margin: 0;
 }
