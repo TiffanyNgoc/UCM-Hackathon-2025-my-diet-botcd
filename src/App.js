@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
-const API_KEY = "2fbd08af0ecb4068a06b38b08cb53677"; // Replace with your API key
+const API_KEY = "2fbd08af0ecb4068a06b38b08cb53677"; // Replace with API key
 
 function App() {
   const [ingredients, setIngredients] = useState("");
